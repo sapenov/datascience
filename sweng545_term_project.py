@@ -166,24 +166,24 @@ def frequency_counts(d):
 
 #print(compress_items(COURSES))
 phase1 = clean_courses(DATA)
-print(len(phase1), phase1)
+print("Total number of records:",len(phase1), phase1)
 
-phase2 = remove_duplicates(phase1)
-print(len(phase2), phase2)
+#phase2 = remove_duplicates(phase1)
+#print(len(phase2), phase2)
 
 phase22 = remove_duplicates2(phase1)
-print(len(phase22), phase22)
+print("Deduped records:",len(phase22), phase22)
 
 # create lists of courses
-phase3 = flatten(phase2)
-print(len(phase3), phase3)
+#phase3 = flatten(phase2)
+#print(len(phase3), phase3)
 
 phase33 = flatten(phase22)
-print(len(phase33), phase33)
+print("List of all courses per user:",len(phase33), phase33)
 
 # get electives only
 phase4 = get_electives(phase33)
-print(len(phase4), phase4)
+print("List of electives per user:", len(phase4), phase4)
 # 296 records
 # {
 # 'billmumy': {'ARTS497', 'ARTS569'},
@@ -193,7 +193,7 @@ print(len(phase4), phase4)
 # Use apriori algorithm to find
 # step 1. get frequency counts
 phase5 = frequency_counts(phase4)
-print(len(phase5), phase5)
+print("Frequency counts aka L1:",len(phase5), phase5)
 # 29 records
 # {'ARTS569': 75, 'ARTS497': 15, 'ARTS559': 23, 'ARTS587': 63 ...
 
@@ -238,7 +238,7 @@ for course_code, counts in L1.items():
     if support > S:
         L2[course_code] = counts
 
-print(L2)
+print("Apriori - L2 with 10% support:", L2)
 
 
 
